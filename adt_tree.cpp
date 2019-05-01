@@ -71,3 +71,82 @@ void postOrder(Node *root)
             cout<<root->data<<endl;
       }
 }
+
+//fungsi utama
+int main()
+{
+      //deklarasikan variabel
+      int pil, date;// c;
+      Node *tree; //*t;
+      tree = NULL; //inisialisasi node pohon
+      //perulangan do-while
+      do
+      {
+            system("cls"); //bersihkan layar
+            cout<<"\t<<__________PROGRAM  ADT TREE__________>>"<<endl;
+            cout<<"\n\t======================================="<<endl;
+            cout<<"\nPilihan :"<<endl;
+            cout<<"\n\n"<<endl;
+            cout<<"           1) Tambah\n"<<endl;
+            cout<<"           2) Lihat pre order\n"<<endl;
+            cout<<"           3) Lihat in order\n"<<endl;
+            cout<<"           4) Lihat post order\n"<<endl;
+            cout<<"           5) Exit\n"<<endl;
+            cout<<"Pilihan : "<<endl;
+            cout<<"============================================"<<endl;
+            cin >> pil;
+            switch(pil)
+            {
+            //jika pil bernilai 1
+            case 1 :
+                  cout<<"\nINPUT : "<<endl;
+                  cout<<"\n-------"<<endl;
+                  cout<<"\nData baru : "<<endl;
+                  scanf("%d", &date);
+                  //panggil fungsi untuk menambah node yang berisi data pada tree
+                  tambah(&tree, date);
+                  system("pause");
+                  break;
+
+            //jika pil bernilai 2
+            case 2 :
+                  cout<<"\nOUTPUT PRE ORDER : "<<endl;
+                  cout<<"\n------------------\n"<<endl;
+                  if(tree!=NULL)
+                       //panggil fungsi untuk mencetak data secara preOrder
+                        preOrder(tree);
+                  else
+                        cout<<"belum ada!"<<endl;
+                    system("pause");
+                  break;
+
+            //jika pil bernilai 3
+            case 3 :
+                  cout<<"\nOUTPUT IN ORDER : "<<endl;
+                  cout<<"\n------------------\n"<<endl;
+                  if(tree!=NULL)
+                       //panggil fungsi untuk mencetak data secara inOrder
+                        inOrder(tree);
+                  else
+                        cout<<"belum ada!"<<endl;
+                system("pause");
+                  break;
+
+            //jika pil bernilai 4
+            case 4 :
+                  cout<<"\nOUTPUT POST ORDER : "<<endl;
+                  cout<<"\n------------------\n"<<endl;
+                  if(tree!=NULL)
+                       //panggil fungsi untuk mencetak data secara postOrder
+                        postOrder(tree);
+
+                  else
+                        cout<<"belum ada!"<<endl;
+                system("pause");
+                  break;
+            }
+            cin.get();
+      }while(pil != 5); //akan diulang jika input tidak samadengan 5
+      return EXIT_FAILURE;
+}
+
